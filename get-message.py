@@ -35,6 +35,7 @@ def get_message():
         # Check if there is a message in the queue or not
         if "Messages" in response:
             # extract the two message attributes you want to use as variables
+            # extract the handle for deletion later
             order = response['Messages'][0]['MessageAttributes']['order']['StringValue']
             word = response['Messages'][0]['MessageAttributes']['word']['StringValue']
             handle = response['Messages'][0]['ReceiptHandle']
