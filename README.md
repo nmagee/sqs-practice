@@ -2,6 +2,8 @@
 
 This programming assignment makes use of your Python skills to interact with an Amazon SQS messaging queue.
 
+You are allowed to work on this project with one other person, if you want to. But that is not required. See the "Submission & Grading" section at the bottom for instructions.
+
 Short instructions: You have been given your own SQS queue, and some AWS credentials to use. Write python that does the following:
 
 1. Retrieves the messages that have been published to your queue. There are 10 in total.
@@ -77,6 +79,11 @@ Only when you are finally ready should you enable message deletion in your scrip
 ## Submission and Grading
 
 You should submit the URL to your fork of this repository for grading. The repository should contain your script and the reassembled phrase in the proper file.
+
+If you completed this project with a partner, follow these steps:
+
+1. In `phrase.txt` indicate your partner's name.
+2. Only one repo should be submitted for grading. So be sure all of your collaborative work is pushed to a single repository, and both of you should submit the same repo URL.
 
 This data project is worth 17 total points:
 
