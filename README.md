@@ -14,13 +14,13 @@ Short instructions: You have been given your own SQS queue, and some AWS credent
 ## Setup
 
 1. Fork this repository and open your fork in Gitpod or in your local environment. Add/commit/push your work to your own fork.
-2. Make sure you use the custom AWS credentials given to you in Canvas. DO NOT USE AWS Academy for this project. They will not work. 
+2. Make sure you use the custom AWS credentials given to you in Canvas. DO NOT USE AWS Academy for this project. It will not work. 
 3. If you open this project in Gitpod, all software should be provided for you. But in case you need to reload them, simply run
 
     ```
     pip install -r requirements.txt
     ```
-4. Reference the [`get-message.py`](get-message.py) file for a start at how to pull each message from SQS. Read the file carefully to understand what its parts do.
+4. Reference the [`get-message.py`](get-message.py) file for a start at how to pull a single message from SQS. Read the file carefully to understand what its parts do.
 5. A custom SQS queue has been created for each of you. To determine your Queue URL, simply add your UVA computing ID to the end of this URL:
 
     ```
@@ -32,15 +32,15 @@ Short instructions: You have been given your own SQS queue, and some AWS credent
 
 ## Receiving Messages
 
-Since you are given the code to get one (1) message from the queue, you should determine a way to repeat that ten (10) times.
+Since you are given the code to get one (1) message from the queue, you should determine a way to repeat that ten (10) times. (Without running it separately 10x.)
 
-Messages in your queue have an `VisibilityTimeout` of 5 minutes (300 seconds). Messages in your queue will remain for 14 days unless deleted.
+Messages in your queue have an `VisibilityTimeout` of 5 minutes (300 seconds). Messages in your queue will remain for 14 days unless you delete them.
 
 ## Storing Message Data
 
-Each message contains two important attributes (extended fields that have been added). The sample code given to you pulls those values out as variables for you to use.
+Each message contains two important attributes (extended fields that have been added). These fields are named `order` and `word`. The sample code given to you pulls those values out as variables for you to use.
 
-However, you need to implement some means of storing them so that they can be re-ordered. You will notice the values you get back for the `order` field are zero-indexed.
+However, you need to implement some means of storing them so that they can be re-ordered. Values for the `order` field are zero-indexed.
 
 ## Reassembling Message Data
 
@@ -56,9 +56,9 @@ messages = [
     {"order":1, "word":"quick"},
 ]
 ```
-If put into order `[0,1,2,3]` reveals the phrase `The quick brown fox`.
+If put these dictionaries into order `[0,1,2,3]` you can read the phrase `The quick brown fox`.
 
-Be sure your python outputs the correctly ordered phrase. You may then type it into `phrase.txt`
+Be sure your python outputs the correctly ordered phrase. You may then type it into `phrase.txt` by hand.
 
 ## Deleting Messages
 
