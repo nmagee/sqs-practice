@@ -64,11 +64,13 @@ Be sure your python outputs the correctly ordered phrase. You may then type it i
 
 A function has been given to you to delete a messaging using its `ReceiptHandle`. Be sure to use this for the final run of your code.
 
+You will be penalized if any messages remain in your queue after your script runs.
+
 ## Recommendations for Testing
 
 Your script needs to (1) retrieve all messages; (2) store message data; (3) reassemble the phrase from the message content; and (4) delete the messages in a single execution.
 
-My advice is for you to test 1, 2, and 3 above as you like, as many times as you like. Messages that have been picked up will remain invisible for 5 minutes. But after that time they will reappear in your queue and you can test again.
+My advice is for you to test 1, 2, and 3 above as you like, as many times as you like. Messages that have been picked up will remain invisible for 5 minutes. After that time has elapsed they will reappear in your queue and you can test again.
 
 Only when you are finally ready should you enable message deletion in your script.
 
@@ -82,7 +84,7 @@ This data project is worth 17 total points:
 |---|---|
 | Setup / proper queue  | 1  |
 | Loop through messages  | 2  |
-| Store message output  | 3  |
+| Store message output  | 4  |
 | Reassemble message logic  | 4 |
 | Correct phrase | 3 |
 | Delete all SQS messages  | 3  |
