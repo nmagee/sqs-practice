@@ -1,6 +1,6 @@
-# Reassembling SQS Messages
+# Data Project 3: Reassemble SQS Messages
 
-This programming assignment makes use of your Python skills while interacting with an Amazon SQS messaging queue.
+This programming assignment makes use of your Python skills to interact with an Amazon SQS messaging queue.
 
 Short instructions: You have been given your own SQS queue, and some AWS credentials to use. Write python that does the following:
 
@@ -8,7 +8,7 @@ Short instructions: You have been given your own SQS queue, and some AWS credent
 2. Each message contains two custom `MessageAttributes`: `order` and `word`. For instance, one message might contain an order of `3` and a word of `what`.
 3. You should determine some method for storing these values as a pair. There are many options: in a Python collection object, in a text file, an SQL database, a MongoDB collection, etc.
 4. Once you have picked up your messages, your python should reassemble the words by using the `order` value. This will reveal a phrase that you should then manually enter into the `phrase.txt` file. DO NOT reassemble the messages by hand.
-5. Finally, your python should also delete the messages after you have processed them. This should not be done by hand.
+5. Finally, your python should delete all messages after processing. This should not be done by hand.
 
 
 ## Setup
