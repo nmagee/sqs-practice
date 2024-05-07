@@ -20,6 +20,7 @@ def delete_message(handle):
 def get_messages():
 
     answer_dict = {}
+    answer_list = []
 
     for m in range(0, 10):
         try:
@@ -46,9 +47,15 @@ def get_messages():
                 # print(f"Order: {order}")
                 # print(f"Word: {word}")
 
+                # How to build if using DICT
                 answer = {}
                 answer[order] = word
                 answer_dict.update(answer)
+
+                # How to build if using LIST
+                each_answer = [order, word]
+                answer_list.append(each_answer)
+
 
                 delete_message(handle)
 
@@ -62,13 +69,20 @@ def get_messages():
 
     # Sort the reassembled dict
     sorted_dict = dict(sorted(answer_dict.items()))
-
     answer = ""
-
     for key in sorted_dict:
         answer += sorted_dict[key] + " "
-
     print(answer)
+
+
+    # Sort the reassembled list
+    answer_list.sort()
+    solution = ""
+    for a in answer_list:
+        solution += a[1] + " "
+
+    print(solution)
+
 
 # Trigger the function
 if __name__ == "__main__":
