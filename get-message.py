@@ -5,7 +5,6 @@ from botocore.exceptions import ClientError
 url = "https://sqs.us-east-1.amazonaws.com/440848399208/nem2p"
 sqs = boto3.client('sqs')
 
-answer_dict = {}
 
 def delete_message(handle):
     try:
@@ -19,10 +18,13 @@ def delete_message(handle):
         print(e.response['Error']['Message'])
 
 def get_messages():
+
+    answer_dict = {}
+
     for m in range(0, 10):
         try:
             # Receive message from SQS queue. Each message has two MessageAttributes: order and word
-            # You want to extract these two attributes to reassemble the message
+            # You want to extract these two attributes to reassemble the secret message
             response = sqs.receive_message(
                 QueueUrl=url,
                 AttributeNames=[
