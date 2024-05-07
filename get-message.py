@@ -50,6 +50,8 @@ def get_messages():
                 answer[order] = word
                 answer_dict.update(answer)
 
+                delete_message(handle)
+
             # If there is no message in the queue, print a message and exit    
             else:
                 print("No message in the queue")
