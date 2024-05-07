@@ -1,7 +1,5 @@
 import boto3
 from botocore.exceptions import ClientError
-import requests
-import json
 
 # Set up your SQS queue URL and boto3 client
 url = "https://sqs.us-east-1.amazonaws.com/440848399208/nem2p"
