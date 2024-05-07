@@ -1,7 +1,5 @@
 import boto3
 from botocore.exceptions import ClientError
-import os
-import json
 
 def send_bulk(uid):
     sqs = boto3.client('sqs')
@@ -29,11 +27,10 @@ def send_bulk(uid):
             print(e)
     print(url)
     print(uid)
-    print("Bulk message sent")
+    print("Bulk messages sent")
 
-file1 = open('students.txt', 'r')
-Lines = file1.readlines()
-
+# file1 = open('students.txt', 'r')
+# Lines = file1.readlines()
 # for line in Lines:
 #     response = send_bulk(line)
 
