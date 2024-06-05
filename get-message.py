@@ -3,19 +3,20 @@ from botocore.exceptions import ClientError
 
 # Set up your SQS queue URL and boto3 client
 url = "https://sqs.us-east-1.amazonaws.com/440848399208/nem2p"
-sqs = boto3.client('sqs')
+sqs = boto3.client("sqs")
 
 
 def delete_message(handle):
     try:
         # Delete message from SQS queue
         sqs.delete_message(
-            QueueUrl=url,
+            QueueUrl=url, 
             ReceiptHandle=handle
         )
         print("Message deleted")
     except ClientError as e:
-        print(e.response['Error']['Message'])
+        print(e.response["Error"]["Message"])
+
 
 def get_messages():
 
@@ -28,24 +29,20 @@ def get_messages():
             # You want to extract these two attributes to reassemble the secret message
             response = sqs.receive_message(
                 QueueUrl=url,
-                AttributeNames=[
-                    'All'
-                ],
+                AttributeNames=["All"],
                 MaxNumberOfMessages=1,
-                MessageAttributeNames=[
-                    'All'
-                ]
+                MessageAttributeNames=["All"],
             )
             # Check if there is a message in the queue or not
             if "Messages" in response:
                 # extract the two message attributes you want to use as variables
-                order = response['Messages'][0]['MessageAttributes']['order']['StringValue']
-                word = response['Messages'][0]['MessageAttributes']['word']['StringValue']
-                handle = response['Messages'][0]['ReceiptHandle']
-
-                # Print the message attributes - this is what you want to work with to reassemble the message
-                # print(f"Order: {order}")
-                # print(f"Word: {word}")
+                order = response["Messages"][0]["MessageAttributes"]["order"][
+                    "StringValue"
+                ]
+                word = response["Messages"][0]["MessageAttributes"]["word"][
+                    "StringValue"
+                ]
+                handle = response["Messages"][0]["ReceiptHandle"]
 
                 # How to build if using DICT
                 answer = {}
@@ -56,16 +53,15 @@ def get_messages():
                 each_answer = [order, word]
                 answer_list.append(each_answer)
 
-
                 delete_message(handle)
 
-            # If there is no message in the queue, print a message and exit    
+            # If there is no message in the queue, print a message and exit
             else:
                 print("No message in the queue")
-            
+
         # Handle any errors that may occur connecting to SQS
         except ClientError as e:
-            print(e.response['Error']['Message'])
+            print(e.response["Error"]["Message"])
 
     # Sort the reassembled dict
     sorted_dict = dict(sorted(answer_dict.items()))
@@ -74,16 +70,13 @@ def get_messages():
         answer += sorted_dict[key] + " "
     print(answer)
 
-
     # Sort the reassembled list
     answer_list.sort()
     solution = ""
     for a in answer_list:
         solution += a[1] + " "
-
     print(solution)
 
 
-# Trigger the function
 if __name__ == "__main__":
     get_messages()

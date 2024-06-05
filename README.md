@@ -1,4 +1,4 @@
-# Reassembling SQS Messages
+# Reassemble SQS Messages
 
 This programming assignment makes use of your Python skills while interacting with an Amazon SQS messaging queue.
 
