@@ -10,7 +10,6 @@ Short instructions: You have been given your own SQS queue, and some AWS credent
 4. Once you have picked up your messages, your python should reassemble the words by using the `order` value. This will reveal a phrase that you should then manually enter into the `phrase.txt` file. DO NOT reassemble the messages by hand.
 5. Finally, your python should also delete the messages after you have processed them. This should not be done by hand.
 
-
 ## Setup
 
 1. Fork this repository and open your fork in Gitpod or in your local environment. Add/commit/push your work to your own fork.
